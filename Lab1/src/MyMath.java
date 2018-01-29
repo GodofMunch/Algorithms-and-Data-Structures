@@ -25,35 +25,48 @@ public class MyMath {
 
         else
             answer = a;
-            for (int i = 0; i < b - 1; i++) {
-                answer = a*answer;
-            }
+        for (int i = 0; i < b - 1; i++) {
+            answer = a*answer;
+        }
+        return answer;
+    }
+
+    public static int factorial(int n) {
+
+        int answer = 1;
+
+        for(int i = 1; i <= n; i++) {
+            answer = answer * i;
+        }
+
         return answer;
     }
 
     public static int sumOfNumbers(int a) {
 
-        int answer = 1;
+        int answer = 0;
 
         for(int i = 0; i <= a; i++) {
-            answer += answer;
+            answer += i;
         }
         return answer;
     }
 
     public static boolean isPrimeNumber(int n) {
 
-        boolean isPrime = false;
+        boolean isPrime;
+        int divisor = 0;
 
-        if(n % 2 == 0)
-            isPrime = true;
-        else
-            for(int i = 2; i < n; i++){
-                if(n % i == 0)
-                    isPrime = true;
-                else
-                    isPrime = false;
+        for(int i = 2; i < n; i++){
+            if(n % i == 0){
+                divisor++;
             }
+        }
+
+        if(divisor >= 1)
+            isPrime = false;
+        else
+            isPrime = true;
 
         return isPrime;
     }
@@ -64,7 +77,7 @@ public class MyMath {
         boolean hasUpper = false;
         boolean hasLower = false;
 
-        if(password.length() < 8) {
+        if(password.length() >= 8) {
 
             for(int i = 0; i < password.length(); i++) {
                 if(Character.isUpperCase(password.charAt(i)))
@@ -100,3 +113,4 @@ public class MyMath {
         return numOfEntries;
     }
 }
+

@@ -12,8 +12,8 @@ public class EthelsEncryption {
         for(int i=0; i<message.length();i++) {
             intCharacter = (int)message.charAt(i);
 
-            if((intCharacter + OFFSET > upperCaseA + 25))
-                intCharacter = intCharacter-26;
+            if((intCharacter + OFFSET > upperCaseA + 25)) //25 = length of Alphabet - 1(A)
+                intCharacter = intCharacter-26; //26 = length of alphabet
             if(message.charAt(i)!=' ')
                 characters[i] = (char)(intCharacter + OFFSET);
             else

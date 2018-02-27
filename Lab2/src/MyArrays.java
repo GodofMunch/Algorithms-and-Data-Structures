@@ -23,4 +23,34 @@ public class MyArrays {
 
         return currentSize;
     }
+
+    public static int sumArray(int[] list, int currentSize) {
+
+        int sum = 0;
+
+        for(int i = 0; i < currentSize; i++)
+            sum += list[i];
+
+        return sum;
+    }
+
+    public static int maxOfArray(int[] list, int currentSize) {
+        int max = list[0];
+
+        for(int i = 0; i < currentSize; i++)
+            if(list[i] > max)
+                max = list[i];
+
+        return max;
+    }
+
+    public static int minOfArray(int[] list, int currentSize) {
+        int min = list[0];
+
+        for(int i = 0; i < currentSize; i++)
+            if(list[i] < min)
+                min = list[i];
+
+        return min;
+    }
 }

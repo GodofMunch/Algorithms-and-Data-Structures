@@ -4,6 +4,7 @@ public class MyArraysTest {
 
         testRemoveItem();
         testAddItem();
+        testSum();
     }
 
     public static void testRemoveItem() {
@@ -47,10 +48,26 @@ public class MyArraysTest {
 
         int[] array = {2,4,6,8,10,12,16,18,20,0,0,0,0,0};
 
-        String arrayText = "";
+        String arrayText = "\n\n";
 
         for(int i = 0; i < array.length;i++)
+        {
+            if(array[i] != 0 && array[i+1] ==0)
+                currentSize = i;
+        }
 
+        MyArrays.addItem(array,currentSize, currentSize +1, 22);
+
+        for(int i = 0; i < array.length; i++)
+            arrayText += array[i] + ",";
+
+        System.out.println(arrayText);
+    }
+
+    public static void testSum() {
+        int[] array = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+
+        int sum = MyArrays.sumArray(array,array.length);
 
     }
 }

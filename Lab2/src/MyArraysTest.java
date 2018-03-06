@@ -9,6 +9,8 @@ public class MyArraysTest {
         testMax();
         testLinearSearch();
         testMerge();
+        testInsertionSort();
+        testSelectionSort();
     }
 
     public static void testRemoveItem() {
@@ -114,12 +116,39 @@ public class MyArraysTest {
         int[] sortedArrayOne = {23,55,66,99};
         int[] sortedArrayTwo = {11,12,34,100,156,200};
 
-        int[] mergedArray = MyArrays.merge(sortedArrayOne, 0, sortedArrayOne.length, sortedArrayTwo, 0, sortedArrayTwo.length);
+        int[] mergedArray = MyArrays.merge(sortedArrayOne, 0, sortedArrayOne.length-1, sortedArrayTwo, 0, sortedArrayTwo.length-1);
 
-        String mergedArrayToString = "\n";
+        String mergedArrayToString = "";
         for(int i = 0; i < mergedArray.length; i++)
             mergedArrayToString += mergedArray[i] + ",";
 
         System.out.println("\n\nTest Merge\n\nExpected 11,12,23,34,55,66,99,100,156,200,\nActual : " + mergedArrayToString);
+    }
+
+    public static void testInsertionSort() {
+
+        int[] list = {23,12,56,34,78,11,92,4};
+
+        MyArrays.insertionSort(list, list.length-1);
+
+        String arrayText = "";
+
+        for(int i =0; i < list.length; i++)
+            arrayText += list[i] + ",";
+
+        System.out.println("\n\nTest Insertion Sort\n\nExpected 4,11,12,23,34,56,78,92\nActual : " + arrayText );
+    }
+
+    public static void testSelectionSort() {
+        int[] list = {0,34,12,67,45,78,34,11,67};
+
+        MyArrays.selectionSort(list, list.length-1);
+
+        String arrayText = "";
+
+        for(int i = 0; i < list.length; i++)
+            arrayText += list[i] + ",";
+
+        System.out.println("\n\nTest Selection Sort\n\nExpected 0,11,12,34,34,45,67,67,78\nActual : " + arrayText);
     }
 }

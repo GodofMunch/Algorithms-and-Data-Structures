@@ -144,7 +144,8 @@ public class MyArrays {
         int j = leftTwo;
         int k = 0;
 
-        int[] aThree = new int[rightOne + rightTwo];
+        int arraySize = rightOne - leftOne + 1 + rightTwo - leftTwo + 1;
+        int[] aThree = new int[arraySize];
 
         while (i <= rightOne && j <= rightTwo) {
 
@@ -153,7 +154,7 @@ public class MyArrays {
                 aThree[k] = aOne[i];
                 i++;
                 k++;
-            } else if (aOne[i] > aTwo[j]) {
+            } else {
 
                 aThree[k] = aTwo[j];
                 j++;
@@ -162,17 +163,80 @@ public class MyArrays {
         }
 
         if (i <= rightOne)
-            for (int m = i; m < rightOne; m++) {
+            for (int m = i; m <= rightOne; m++) {
                 aThree[k] = aOne[m];
                 k++;
             }
 
         else
-            for (int m = j; m < rightTwo; m++) {
+            for (int m = j; m <= rightTwo; m++) {
                 aThree[k] = aTwo[m];
                 k++;
-        }
+            }
 
         return aThree;
+    }
+
+    public static int binarySearch(int[] a,int currentSize,int searchKey) {
+        return 0;
+    }
+
+    public static void selectionSort(int[] a, int currentSize) {
+
+        /*int p = 0;
+        int valueOfSmallest = a[0];
+
+        for(int i = 0; i <= currentSize - 2; i++) {
+            if (a[i] <= valueOfSmallest) {
+                valueOfSmallest = a[i];
+                p = i;
+            }
+            if(p != i)
+                a[i] = a[p];
+                a[p] = valueOfSmallest;
+        */
+
+        /*for( int i = 0;i<currentSize; i++) {
+            int smallestIndex = i;
+
+            for(int j = 1; j < currentSize; j++) {
+                if(a[smallestIndex] > a[j])
+                    smallestIndex = j;
+            }
+
+            if(smallestIndex !=i) {
+                int temp = a[i];
+                a[i] = a[smallestIndex];
+                a[smallestIndex] = temp;
+            }
+
+        }*/
+
+        for(int i = 0; i < currentSize; i ++) {
+            int smallestIndex = i;
+            for(int j = 0; j < currentSize; j++){
+                if(a[smallestIndex] <= a[i])
+
+
+            }
+        }
+    }
+
+    public static void insertionSort(int[] a, int currentSize) {
+
+        int value;
+        int j;
+
+        for(int i = 1; i <= currentSize; i++) {
+            value = a[i];
+            j = i - 1;
+
+            while(j >= 0 && a[j] > value) {
+                a[j+1] = a[j];
+                j--;
+            }
+
+            a[j+1] = value;
+        }
     }
 }

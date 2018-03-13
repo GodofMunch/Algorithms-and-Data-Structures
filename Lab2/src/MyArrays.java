@@ -177,50 +177,70 @@ public class MyArrays {
         return aThree;
     }
 
-    public static int binarySearch(int[] a,int currentSize,int searchKey) {
-        return 0;
+    /**
+     *
+     * @param myArray
+     * @param currentSize
+     * @param searchKey
+     * @return
+     */
+    public static int binarySearch(int[] myArray,int currentSize,int searchKey) {
+        int l = 0;
+        int r = currentSize-1;
+        boolean found = false;
+
+        while(!found && l <=r ) {
+            int m = (l + r) / 2;
+
+            if(searchKey == myArray[m])
+                found = true;
+
+            else if(searchKey < myArray[m])
+                r = m-1;
+            else
+                l = m+1;
+        }
+
+        if(found)
+            return 1;
+        else
+            return 0;
     }
 
-    public static void selectionSort(int[] a, int currentSize) {
+    /**
+     *
+     * @param myArray
+     * @param currentSize
+     */
+    public static void selectionSort(int[] myArray, int currentSize) {
 
-        /*int p = 0;
-        int valueOfSmallest = a[0];
 
-        for(int i = 0; i <= currentSize - 2; i++) {
-            if (a[i] <= valueOfSmallest) {
-                valueOfSmallest = a[i];
-                p = i;
-            }
-            if(p != i)
-                a[i] = a[p];
-                a[p] = valueOfSmallest;
-        */
+        int smallestPosition = 0;
+        int smallest = myArray[smallestPosition];
+        int temp = 0;
 
-        /*for( int i = 0;i<currentSize; i++) {
-            int smallestIndex = i;
+        for(int firstIndex = 0; firstIndex <= (currentSize-2); firstIndex ++) {
 
-            for(int j = 1; j < currentSize; j++) {
-                if(a[smallestIndex] > a[j])
-                    smallestIndex = j;
-            }
+            smallest = myArray[firstIndex];
+            for(int secondIndex = firstIndex; secondIndex <= (currentSize-1); secondIndex ++)
+                if(myArray[secondIndex] <= smallest) {
+                    smallestPosition = secondIndex;
+                    smallest = myArray[smallestPosition];
+                }
 
-            if(smallestIndex !=i) {
-                int temp = a[i];
-                a[i] = a[smallestIndex];
-                a[smallestIndex] = temp;
-            }
-
-        }*/
-
-        for(int i = 0; i < currentSize; i ++) {
-            int smallestIndex = i;
-            for(int j = 0; j < currentSize; j++){
-                if(a[smallestIndex] <= a[i])
-
+            if( smallestPosition != firstIndex) {
+                temp = myArray[firstIndex];
+                myArray[firstIndex] = smallest;
+                myArray[smallestPosition] = temp;
 
             }
         }
     }
+    /**
+     *
+     * @param a
+     * @param currentSize
+     */
 
     public static void insertionSort(int[] a, int currentSize) {
 
@@ -238,5 +258,13 @@ public class MyArrays {
 
             a[j+1] = value;
         }
+    }
+
+    public static void sort(int[] myArray) {
+        //Java API = Dual Pivot sort Algorithm
+    }
+
+    public static void sort(int[] myArray, int fromIndex, int toIndex) {
+        //Java API = Dual Pivot sort Algorithm
     }
 }

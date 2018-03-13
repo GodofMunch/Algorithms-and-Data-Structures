@@ -11,6 +11,8 @@ public class MyArraysTest {
         testMerge();
         testInsertionSort();
         testSelectionSort();
+        testBinarySearch();
+
     }
 
     public static void testRemoveItem() {
@@ -140,7 +142,7 @@ public class MyArraysTest {
     }
 
     public static void testSelectionSort() {
-        int[] list = {0,34,12,67,45,78,34,11,67};
+        int[] list = {0,34,12,68,45,78,34,11,67};
 
         MyArrays.selectionSort(list, list.length-1);
 
@@ -151,4 +153,19 @@ public class MyArraysTest {
 
         System.out.println("\n\nTest Selection Sort\n\nExpected 0,11,12,34,34,45,67,67,78\nActual : " + arrayText);
     }
+
+    public static void testBinarySearch() {
+        int[] sortedArray = { 12,23,34,45,56,67,78};
+        int found;
+
+        found = MyArrays.binarySearch(sortedArray, sortedArray.length, 45);
+
+        System.out.println("Test Binary Search\n\nExpected  : 1\nActual : " + found);
+
+        found = MyArrays.binarySearch(sortedArray, sortedArray.length,44);
+
+        System.out.println("Expected : 0\nActual : " + found);
+    }
+
+
 }

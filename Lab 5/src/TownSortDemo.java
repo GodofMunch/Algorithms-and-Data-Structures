@@ -32,10 +32,6 @@ public class TownSortDemo {
         Collections.sort(towns1);
         System.out.println("\nSorted ArrayList");
         displayArrayList(towns1);
-
-        //int x = towns[2].compareTo(towns[1]);
-
-        //System.out.println("\n\nX = " + x + ", towns[2] = " + towns[2] + ", towns[1] = " + towns[1]);
     }
 
     private static void displayArray(Town[] towns, int currentSize) {
